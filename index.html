@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+ 
+    <style>
+ 
+        body{
+            font-family: Arial;
+            background:#f4f4f4;
+            padding:20px;
+        }
+ 
+        .container{
+            max-width:500px;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+ 
+        h2{
+            text-align:center;
+        }
+ 
+        input, select{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+        }
+ 
+        button{
+            width:100%;
+            padding:12px;
+            background:#0066ff;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+ 
+        button:hover{
+            background:#004ec2;
+        }
+ 
+    </style>
+ 
+</head>
+ 
+<body>
+ 
+<div class="container">
+ 
+<h2>Student Registration Form</h2>
+ 
+<form id="myForm">
+ 
+<label>Full Name</label>
+<input type="text" name="fullname" required>
+ 
+<label>Student ID</label>
+<input type="text" name="studentid" required>
+ 
+<label>Program</label>
+<input type="text" name="program" required>
+ 
+<label>Year Level</label>
+<select name="yearlevel" required>
+<option value="">Select</option>
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+</select>
+ 
+<label>Email</label>
+<input type="email" name="email" required>
+ 
+<label>Contact Number</label>
+<input type="text" name="contact" required>
+ 
+<button type="submit">Submit</button>
+ 
+</form>
+ 
+</div>
+ 
+<script>
+ 
+const scriptURL = "https://script.google.com/macros/s/AKfycbyAld1x5e-eJrDzR6_5ReaGzJqTvbMMf8RF_bVCyBINiAWZitsPWjuUh0mZCq-B02ODMQ/exec";
+ 
+document.getElementById("myForm")
+.addEventListener("submit", function(e){
+ 
+e.preventDefault();
+ 
+fetch(scriptURL,{
+method:"POST",
+body:new FormData(this)
+})
+.then(response=>{
+alert("Form Submitted Successfully!");
+this.reset();
+})
+.catch(error=>{
+alert("Error!");
+});
+ 
+});
+ 
+</script>
+ 
+</body>
+</html>
